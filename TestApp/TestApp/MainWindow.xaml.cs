@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestApp.ViewModels;
 
 namespace TestApp
 {
@@ -23,6 +24,17 @@ namespace TestApp
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
+        }
+
+        private void BtnHello_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("안녕하세요!", "인사");
+        }
+
+        private void BtnNow_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), "현재 시각");
         }
     }
 }

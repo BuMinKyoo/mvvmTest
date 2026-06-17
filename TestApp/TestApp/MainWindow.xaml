@@ -9,6 +9,10 @@
         Title="TestApp" Height="800" Width="1280"
         WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -16,12 +20,19 @@
         </Grid.ColumnDefinitions>
 
         <!-- 메인 화면 (UserControl 조합 골격) -->
-        <controls:ucMain x:Name="uMain" Grid.Column="0" />
+        <controls:ucMain x:Name="uMain" Grid.Row="0" Grid.Column="0" />
 
         <!-- 추가 화면 (순수 code-behind 카운터) -->
-        <controls:ucContent x:Name="uContent" Grid.Column="1" />
+        <controls:ucContent x:Name="uContent" Grid.Row="0" Grid.Column="1" />
 
-        <!-- MVVM 화면 (ViewModel 바인딩 카운터) -->
-        <controls:ucMvvmCounter x:Name="uMvvmCounter" Grid.Column="2" />
+        <!-- MVVM 화면 (상위 MainViewModel의 Counter를 DataContext로 주입) -->
+        <controls:ucMvvmCounter x:Name="uMvvmCounter" Grid.Row="0" Grid.Column="2" DataContext="{Binding Counter}" />
+
+        <!-- 하단 버튼 (순수 code-behind - Click 이벤트 핸들러) -->
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" Orientation="Horizontal"
+                    HorizontalAlignment="Center" Margin="0,12">
+            <Button x:Name="btnHello" Content="인사" Width="120" Height="36" Margin="4" Click="BtnHello_Click" />
+            <Button x:Name="btnNow" Content="현재 시각" Width="120" Height="36" Margin="4" Click="BtnNow_Click" />
+        </StackPanel>
     </Grid>
 </Window>
