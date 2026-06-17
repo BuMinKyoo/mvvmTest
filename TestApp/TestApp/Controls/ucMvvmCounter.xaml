@@ -3,15 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:vm="clr-namespace:TestApp.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="400" d:DesignWidth="600">
 
-    <!-- View의 DataContext로 ViewModel을 연결 -->
-    <UserControl.DataContext>
-        <vm:CounterViewModel />
-    </UserControl.DataContext>
-
+    <!-- DataContext는 code-behind(ucMvvmCounter.xaml.cs)에서 연결한다 -->
     <Grid Background="#FFF8E1">
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock Text="MVVM" FontSize="14" Foreground="#888888" HorizontalAlignment="Center" Margin="0,0,0,8" />
