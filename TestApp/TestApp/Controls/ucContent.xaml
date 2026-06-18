@@ -8,10 +8,10 @@
 
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="txt숫자" Text="0" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,20" />
+            <TextBlock x:Name="txtCount" Text="0" FontSize="48" HorizontalAlignment="Center" Margin="0,0,0,20" />
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button x:Name="btn감소" Content="-" Width="60" Height="40" FontSize="20" Margin="4" Click="Btn감소_Click" />
-                <Button x:Name="btn증가" Content="+" Width="60" Height="40" FontSize="20" Margin="4" Click="Btn증가_Click" />
+                <Button x:Name="btnDecrease" Content="-" Width="60" Height="40" FontSize="20" Margin="4" Click="BtnDecrease_Click" />
+                <Button x:Name="btnIncrease" Content="+" Width="60" Height="40" FontSize="20" Margin="4" Click="BtnIncrease_Click" />
             </StackPanel>
         </StackPanel>
     </Grid>

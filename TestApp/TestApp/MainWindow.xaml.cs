@@ -24,7 +24,13 @@ namespace TestApp
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
+
+            var vm = new MainViewModel();
+            DataContext = vm;
+
+            // 순수 비하인드 화면(ucContent)과 MVVM 화면(ucMvvmCounter)이
+            // 같은 CounterViewModel 인스턴스를 공유하도록 주입한다. (데이터 교환)
+            uContent.AttachCounter(vm.Counter);
         }
 
         private void BtnHello_Click(object sender, RoutedEventArgs e)
